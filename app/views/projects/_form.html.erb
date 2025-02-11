@@ -12,6 +12,14 @@
   <% end %>
 
   <div>
+    <%=form.label :title %>
+    <%=form.text_field :title %>
+    <br>
+    <%=form.label :description %>
+    <%=form.text_area :description %>
+
+    <%=form.label :status %>
+    <%=form.select :status_id, options_for_select(Status.pluck(:name, :id), form.object.status_id)%>
     <%= form.submit %>
   </div>
 <% end %>

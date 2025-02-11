@@ -1,2 +1,14 @@
 <div id="<%= dom_id project %>">
+	<h1><%=project.title%></h1>
+	<h3>Comments:</h3>
+	<% project.comments.each do |comment| %>
+		<p><%=comment.message %> by: <%=comment.user&.name%></p>
+	<% end %>
+	<%=link_to "Add comments", new_project_comment_path(project) %>
+
+	<br>
+	<h3>Project updates:</h3>
+	<% project.histories.each do |history| %>
+		<p><%=history.description %> at: <%=history.created_at %></p>
+	<% end %>
 </div>

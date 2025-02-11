@@ -32,3 +32,10 @@ unless Project.any?
 else
 	puts "Default project already present"
 end
+#projects
+unless Status.any?
+	Status.create!(Status::STATUS_TYPES.map{|d| {name: d }})
+	puts "Default status was created successfully"
+else
+	puts "Default status already present"
+end

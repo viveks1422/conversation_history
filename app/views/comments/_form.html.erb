@@ -1,0 +1,19 @@
+<%= form_for [@project, @comment] do |form| %>
+  <% if @comment.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(@comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
+
+      <ul>
+        <% @comment.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <h2>Add comments on the project <%=@project.title %></h2>
+    <%=form.text_area :message %>
+    <%= form.submit %>
+  </div>
+<% end %>
