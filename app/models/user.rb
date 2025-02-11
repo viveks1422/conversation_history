@@ -8,7 +8,7 @@ class User < ApplicationRecord
    after_create :add_default_role
 
    private
-   	def add_default_role
-   		add_role :user
-	end
+     def add_default_role
+       add_role :user
+  end
 end

@@ -1,3 +1,3 @@
 class History < ApplicationRecord
-	belongs_to :conversationable, polymorphic: true
+  belongs_to :conversationable, polymorphic: true
 end

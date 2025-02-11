@@ -1,41 +1,41 @@
-#users
+# users
 unless User.any?
-	User.create!([{
-		email: 'steve@test.com',
-		password: 'steve@test.com',
-		name: 'Steve Rogers'
+  User.create!([ {
+    email: 'steve@test.com',
+    password: 'steve@test.com',
+    name: 'Steve Rogers'
 
-	}, {
-		email: 'tony@test.com',
-		password: 'tony@test.com',
-		name: 'Tony Stark'
+  }, {
+    email: 'tony@test.com',
+    password: 'tony@test.com',
+    name: 'Tony Stark'
 
-	}])
-	puts "Default user was created successfully"
+  } ])
+  puts "Default user was created successfully"
 else
-	puts "Default user already present"
+  puts "Default user already present"
 end
-#projects
+# projects
 unless Project.any?
-	Project.create!([{
-		title: 'Project 1',
-		description: 'this is the description about project 1',
-		user_id: User.first&.id
+  Project.create!([ {
+    title: 'Project 1',
+    description: 'this is the description about project 1',
+    user_id: User.first&.id
 
-	}, {
-		title: 'Project 2',
-		description: 'this is the description about project 2',
-		user_id: User.second&.id
+  }, {
+    title: 'Project 2',
+    description: 'this is the description about project 2',
+    user_id: User.second&.id
 
-	}])
-	puts "Default project was created successfully"
+  } ])
+  puts "Default project was created successfully"
 else
-	puts "Default project already present"
+  puts "Default project already present"
 end
-#projects
+# projects
 unless Status.any?
-	Status.create!(Status::STATUS_TYPES.map{|d| {name: d }})
-	puts "Default status was created successfully"
+  Status.create!(Status::STATUS_TYPES.map { |d| { name: d } })
+  puts "Default status was created successfully"
 else
-	puts "Default status already present"
+  puts "Default status already present"
 end
