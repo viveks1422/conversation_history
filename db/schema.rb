@@ -10,16 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2025_02_11_210951) do
+ActiveRecord::Schema[7.2].define(version: 2025_02_11_214055) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "comments", force: :cascade do |t|
+    t.string "message"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_comments_on_user_id"
+  end
 
   create_table "projects", force: :cascade do |t|
     t.string "title", null: false
     t.text "description"
     t.bigint "user_id"
+    t.bigint "status_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["status_id"], name: "index_projects_on_status_id"
     t.index ["title"], name: "index_projects_on_title"
     t.index ["user_id"], name: "index_projects_on_user_id"
   end
@@ -32,6 +42,13 @@ ActiveRecord::Schema[7.2].define(version: 2025_02_11_210951) do
     t.datetime "updated_at", null: false
     t.index ["name", "resource_type", "resource_id"], name: "index_roles_on_name_and_resource_type_and_resource_id"
     t.index ["resource_type", "resource_id"], name: "index_roles_on_resource"
+  end
+
+  create_table "statuses", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_statuses_on_name"
   end
 
   create_table "users", force: :cascade do |t|
