@@ -1,0 +1,9 @@
+development:
+  username: ''
+  password: ''
+  host: ''
+
+production:
+  username: ''
+  password: ''
+  host: ''
